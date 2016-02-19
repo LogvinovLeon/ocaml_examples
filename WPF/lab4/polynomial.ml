@@ -19,15 +19,11 @@ let justify l1 l2 =
     let len = max len1 len2 in
     (l1@(zeros (len - len1)), l2@(zeros (len - len2)));;
 
-let rec normalize l =
-    if l = [] then []
-    else
-    let hd = List.hd l in
-    let tl = List.tl l in
-    let tl = normalize tl in
-    match tl with
-      [] when hd = 0. -> []
-    | _ -> hd::tl;;
+let rec normalize = function
+      [] -> []
+    | hd::tl -> match normalize tl with
+                  [] when hd = 0. ->[]
+                | normalized -> hd::normalized;; 
 
 let shift_right p n =
     normalize ((zeros n)@p);;
