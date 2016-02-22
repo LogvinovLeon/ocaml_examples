@@ -1,1 +1,1 @@
-PKG core core_bench
+PKG core core_bench async core_extended
