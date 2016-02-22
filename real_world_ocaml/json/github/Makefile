@@ -11,3 +11,6 @@ gen: deps
 
 deps:
 	opam install core_extended yojson atdgen core
+
+clean:
+	rm github_j* github_t* github_org_j* github_org_t*
